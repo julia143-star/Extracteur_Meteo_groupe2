@@ -4,7 +4,7 @@ Pour éviter de lancer le script manuellement à chaque fois, il est possible d'
 Pour le configurer il suffit d'ouvrir un terminal Linux. 
 Taper la commande suivante pour accéder aux tâches CRON :  crontab -e  
 
-Ajouter cette ligne pour lancer le script toutes les heures : bash 0 * * * * /chemin/vers/Extracteur_Meteo.sh   (adapter le chemin)
+Ajouter cette ligne pour lancer le script toutes les heures : 0 * * * * /chemin/vers/Extracteur_Meteo.sh   (adapter le chemin)
 
 Enregistrer les modifications et quitter. Le script se lancera automatiquement toutes les heures et ajoutera les nouvelles données météo dans le fichier meteo.txt.  
 
