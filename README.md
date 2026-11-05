@@ -1,11 +1,10 @@
-# Extracteur_M-t-o_groupe2
-Automatisation avec CRON  
-Pour éviter de lancer le script manuellement à chaque fois, il est possible d'utiliser CRON. Cet outil permet de programmer l'exécution automatique du script à des heures précises.  
-Pour le configurer il suffit d'ouvrir un terminal Linux. 
-Taper la commande suivante pour accéder aux tâches CRON :  crontab -e  
+###### Version 3 : Historique
 
-Ajouter cette ligne pour lancer le script toutes les heures : 0 * * * * /chemin/vers/Extracteur_Meteo.sh   (adapter le chemin)
+###### L'option -a archive chaque relevé dans un fichier propre à la journée (meteo\_AAAAMMJJ.txt).
 
-Enregistrer les modifications et quitter. Le script se lancera automatiquement toutes les heures et ajoutera les nouvelles données météo dans le fichier meteo.txt.  
+###### Chaque exécution du même jour ajoute une ligne à ce fichier.
 
-Pour vérifier que la tâche a bien été enregistrée, il suffit de taper :   crontab -l   
+###### Exemple : ./Extracteur\_Meteo.sh Toulouse -a
+
+###### Pour archiver automatiquement avec cron : 0 \* \* \* \* /chemin/vers/Extracteur\_Meteo.sh -a
+
