@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# V3 : lecture des arguments (ville + option -a pour l'archivage)
+# V3: lecture des arguments (ville + option -a pour l'archivage)
 archive=0
 ville=""
 for arg in "$@"
@@ -22,13 +22,16 @@ fi
 fichier_brut="meteo_brut.txt"
 curl -s "https://wttr.in/${ville}?format=j1" > "$fichier_brut"
 
-# vérifier que fichier_brut n'est pas vide
+# vérifier que fichier_brut n'est pas vide + redirection des erreurs dans meteo_error.log et timestamp
 if [ ! -s "$fichier_brut" ]
 then
-    echo "Erreur : impossible de récupérer les données météo."
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+    echo "[$timestamp] erreur: impossible de récupérer les données météo pour $ville." >> meteo_error.log
+
+    echo "Erreur: pas possible de récupérer les données météo."
     exit 1
 fi
-
 #température actuelle
 temp_actuelle=$(grep -m1 '"temp_C"' "$fichier_brut" | tr -cd '0-9-')
 #température lendemain
