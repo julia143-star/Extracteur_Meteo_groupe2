@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Extracteur_M-t-o_groupe2
 
 L'objectif du projet :
